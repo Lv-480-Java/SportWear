@@ -17,7 +17,7 @@ public interface IGenericDao<T, N> {
     // read
     List<T> readAll();
 
-    // read one element by id
+    // read one Object by id
     T readById(N n);
 
     // update

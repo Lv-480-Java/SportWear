@@ -9,13 +9,11 @@ package com.sportwear.dao;
 
 import com.sportwear.entity.Address;
 import com.sportwear.connection.DatabaseConnect;
-import com.sportwear.entity.User;
-import com.sportwear.entity.UserRole;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 
 public class AddressDao implements IGenericDao<Address, Long> {
@@ -39,8 +37,9 @@ public class AddressDao implements IGenericDao<Address, Long> {
             ps.setString(2, address.getCity());
             ps.setString(3, address.getStreet());
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error AddressDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with create new field of AddressDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -59,8 +58,9 @@ public class AddressDao implements IGenericDao<Address, Long> {
                 Address address = readOperation(rs);
                 addresses.add(address);
             }
-        }catch (SQLException e) {
-           logger.info("Error AddressDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view list of AddressDao");
+            logger.error(e.getMessage());
         }
         return addresses;
     }
@@ -81,8 +81,9 @@ public class AddressDao implements IGenericDao<Address, Long> {
             while (rs.next()) {
                 address = readOperation(rs);
             }
-        }catch (SQLException e) {
-            logger.info("Error AddressDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view AddressDao by ID");
+            logger.error(e.getMessage());
         }
         return address;
     }
@@ -102,8 +103,9 @@ public class AddressDao implements IGenericDao<Address, Long> {
             ps.setString(3, address.getStreet());
             ps.setLong(4, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error AddressDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with update field of AddressDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -118,8 +120,9 @@ public class AddressDao implements IGenericDao<Address, Long> {
         ) {
             ps.setLong(1, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error AddressDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with delete field of AddressDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -131,8 +134,9 @@ public class AddressDao implements IGenericDao<Address, Long> {
             address.setCountry(resultSet.getString("country"));
             address.setStreet(resultSet.getString("city"));
             address.setCity(resultSet.getString("street"));
-        }catch (SQLException e) {
-            logger.info("Error AddressDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with method [readOperation] of AddressDao");
+            logger.error(e.getMessage());
         }
         return address;
     }

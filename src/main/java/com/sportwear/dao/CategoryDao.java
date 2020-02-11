@@ -7,16 +7,13 @@
  */
 package com.sportwear.dao;
 
-import com.sportwear.entity.Address;
-import com.sportwear.entity.Brand;
 import com.sportwear.entity.Category;
 import com.sportwear.connection.DatabaseConnect;
-import com.sportwear.entity.User;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class CategoryDao implements IGenericDao<Category, Long> {
     private static Logger logger = Logger.getLogger(AddressDao.class.getName());
@@ -37,8 +34,9 @@ public class CategoryDao implements IGenericDao<Category, Long> {
         ) {
             ps.setString(1, category.getName());
             ps.executeUpdate();
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error CategoryDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with create new field of CategoryDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -57,8 +55,9 @@ public class CategoryDao implements IGenericDao<Category, Long> {
                 Category category = readOperation(rs);
                 categories.add(category);
             }
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error CategoryDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view list of CategoryDao");
+            logger.error(e.getMessage());
         }
         return categories;
     }
@@ -79,8 +78,9 @@ public class CategoryDao implements IGenericDao<Category, Long> {
             while (rs.next()) {
                 category = readOperation(rs);
             }
-        }catch (SQLException e) {
-            logger.info("Error CategoryDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view CategoryDao by ID");
+            logger.error(e.getMessage());
         }
         return category;
     }
@@ -99,8 +99,9 @@ public class CategoryDao implements IGenericDao<Category, Long> {
             ps.setLong(2, category.getCategory_id());
             ps.setLong(3, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error CategoryDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with update field of CategoryDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -115,8 +116,9 @@ public class CategoryDao implements IGenericDao<Category, Long> {
         ) {
             ps.setLong(1, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error CategoryDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with delete field of CategoryDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -127,8 +129,9 @@ public class CategoryDao implements IGenericDao<Category, Long> {
             category.setId(resultSet.getLong("id"));
             category.setName(resultSet.getString("name"));
             category.setCategory_id(resultSet.getLong("category_id"));
-        }catch (SQLException e) {
-            logger.info("Error CategoryDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with method [readOperation] of CategoryDao");
+            logger.error(e.getMessage());
         }
         return category;
     }

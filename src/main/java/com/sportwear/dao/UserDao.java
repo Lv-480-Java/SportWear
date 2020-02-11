@@ -7,15 +7,13 @@
  */
 package com.sportwear.dao;
 
-import com.sportwear.entity.Product;
 import com.sportwear.entity.User;
 import com.sportwear.connection.DatabaseConnect;
-import com.sportwear.entity.UserRole;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class UserDao implements IGenericDao<User, Long> {
     private static Logger logger = Logger.getLogger(AddressDao.class.getName());
@@ -40,7 +38,8 @@ public class UserDao implements IGenericDao<User, Long> {
             ps.setString(4, user.getPassword());
             ps.executeUpdate();
         } catch (SQLException e) {
-            logger.info("Error UserDao");
+            logger.error("Some problems with create new field of UserDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -60,7 +59,8 @@ public class UserDao implements IGenericDao<User, Long> {
                 users.add(user);
             }
         } catch (SQLException e) {
-            logger.info("Error UserDao");
+            logger.error("Some problems with view list of UserDao");
+            logger.error(e.getMessage());
         }
         return users;
     }
@@ -82,7 +82,8 @@ public class UserDao implements IGenericDao<User, Long> {
                 user = readOperation(rs);
             }
         } catch (SQLException e) {
-            logger.info("Error UserDao");
+            logger.error("Some problems with view UserDao by ID");
+            logger.error(e.getMessage());
         }
         return user;
     }
@@ -106,7 +107,8 @@ public class UserDao implements IGenericDao<User, Long> {
             ps.setLong(7, id);
             ps.executeUpdate();
         } catch (SQLException e) {
-            logger.info("Error UserDao");
+            logger.error("Some problems with update field of UserDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -122,7 +124,8 @@ public class UserDao implements IGenericDao<User, Long> {
             ps.setLong(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
-            logger.info("Error UserDao");
+            logger.error("Some problems with delete field of UserDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -137,9 +140,9 @@ public class UserDao implements IGenericDao<User, Long> {
             user.setPassword(resultSet.getString("password"));
             user.setPhone(resultSet.getString("phone"));
             user.setAddress_id(resultSet.getLong("address_id"));
-//            user.setUserRole(UserRole.valueOf(resultSet.getString("userRole")));
-        }catch (SQLException e) {
-            logger.info("Error UserDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with method [readOperation] of UserDao");
+            logger.error(e.getMessage());
         }
         return user;
     }

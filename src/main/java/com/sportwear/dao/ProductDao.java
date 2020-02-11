@@ -9,11 +9,11 @@ package com.sportwear.dao;
 
 import com.sportwear.entity.*;
 import com.sportwear.connection.DatabaseConnect;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class ProductDao implements IGenericDao<Product, Long> {
     private static Logger logger = Logger.getLogger(AddressDao.class.getName());
@@ -38,8 +38,9 @@ public class ProductDao implements IGenericDao<Product, Long> {
             ps.setByte(4, product.getSize());
             ps.setDouble(5, product.getPrice());
             ps.executeUpdate();
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error ProductDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with create new field of ProductDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -58,8 +59,9 @@ public class ProductDao implements IGenericDao<Product, Long> {
                 Product product = readOperation(rs);
                 products.add(product);
             }
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error ProductDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view list of ProductDao");
+            logger.error(e.getMessage());
         }
         return products;
     }
@@ -80,8 +82,9 @@ public class ProductDao implements IGenericDao<Product, Long> {
             while (rs.next()) {
                 product = readOperation(rs);
             }
-        }catch (SQLException e) {
-            logger.info("Error ProductDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view ProductDao by ID");
+            logger.error(e.getMessage());
         }
         return product;
     }
@@ -106,8 +109,9 @@ public class ProductDao implements IGenericDao<Product, Long> {
             ps.setLong(8, product.getBrand_id());
             ps.setLong(9, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error ProductDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with update field of ProductDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -122,8 +126,9 @@ public class ProductDao implements IGenericDao<Product, Long> {
         ) {
             ps.setLong(1, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error ProductDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with delete field of ProductDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -140,8 +145,9 @@ public class ProductDao implements IGenericDao<Product, Long> {
             product.setPrice(resultSet.getDouble("price"));
             product.setCategory_id(resultSet.getLong("category_id"));
             product.setBrand_id(resultSet.getLong("brand_id"));
-        }catch (SQLException e) {
-            logger.info("Error ProductDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with method [readOperation] of ProductDao");
+            logger.error(e.getMessage());
         }
         return product;
     }

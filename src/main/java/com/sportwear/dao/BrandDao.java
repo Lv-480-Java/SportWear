@@ -7,15 +7,13 @@
  */
 package com.sportwear.dao;
 
-import com.sportwear.entity.Address;
 import com.sportwear.entity.Brand;
 import com.sportwear.connection.DatabaseConnect;
-import com.sportwear.entity.User;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class BrandDao implements IGenericDao<Brand, Long> {
     private static Logger logger = Logger.getLogger(AddressDao.class.getName());
@@ -36,8 +34,9 @@ public class BrandDao implements IGenericDao<Brand, Long> {
         ) {
             ps.setString(1, brand.getName());
             ps.executeUpdate();
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error BrandDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with create new field of BrandDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -56,8 +55,9 @@ public class BrandDao implements IGenericDao<Brand, Long> {
                 Brand brand = readOperation(rs);
                 brands.add(brand);
             }
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error BrandDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view list of BrandDao");
+            logger.error(e.getMessage());
         }
         return brands;
     }
@@ -78,8 +78,9 @@ public class BrandDao implements IGenericDao<Brand, Long> {
             while (rs.next()) {
                 brand = readOperation(rs);
             }
-        }catch (SQLException e) {
-            logger.info("Error BrandDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view BrandDao by ID");
+            logger.error(e.getMessage());
         }
         return brand;
     }
@@ -97,8 +98,9 @@ public class BrandDao implements IGenericDao<Brand, Long> {
             ps.setString(1, brand.getName());
             ps.setLong(2, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error BrandDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with update field of BrandDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -113,8 +115,9 @@ public class BrandDao implements IGenericDao<Brand, Long> {
         ) {
             ps.setLong(1, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error BrandDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with delete field of BrandDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -124,8 +127,9 @@ public class BrandDao implements IGenericDao<Brand, Long> {
             brand = new Brand();
             brand.setId(resultSet.getLong("id"));
             brand.setName(resultSet.getString("name"));
-        }catch (SQLException e) {
-            logger.info("Error BrandDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with method [readOperation] of BrandDao");
+            logger.error(e.getMessage());
         }
         return brand;
     }

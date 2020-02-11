@@ -9,11 +9,11 @@ package com.sportwear.dao;
 
 import com.sportwear.entity.*;
 import com.sportwear.connection.DatabaseConnect;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class ColorDao implements IGenericDao<Color, Long> {
     private static Logger logger = Logger.getLogger(AddressDao.class.getName());
@@ -34,8 +34,9 @@ public class ColorDao implements IGenericDao<Color, Long> {
         ) {
             ps.setString(1, color.getName());
             ps.executeUpdate();
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error ColorDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with create new field of ColorDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -54,8 +55,9 @@ public class ColorDao implements IGenericDao<Color, Long> {
                 Color color = readOperation(rs);
                 colors.add(color);
             }
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error ColorDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view list of ColorDao");
+            logger.error(e.getMessage());
         }
         return colors;
     }
@@ -76,8 +78,9 @@ public class ColorDao implements IGenericDao<Color, Long> {
             while (rs.next()) {
                 color = readOperation(rs);
             }
-        }catch (SQLException e) {
-            logger.info("Error ColorDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view ColorDao by ID");
+            logger.error(e.getMessage());
         }
         return color;
     }
@@ -95,8 +98,9 @@ public class ColorDao implements IGenericDao<Color, Long> {
             ps.setString(1, color.getName());
             ps.setLong(2, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error ColorDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with update field of ColorDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -111,8 +115,9 @@ public class ColorDao implements IGenericDao<Color, Long> {
         ) {
             ps.setLong(1, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error ColorDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with delete field of ColorDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -122,8 +127,9 @@ public class ColorDao implements IGenericDao<Color, Long> {
             color = new Color();
             color.setId(resultSet.getLong("id"));
             color.setName(resultSet.getString("name"));
-        }catch (SQLException e) {
-            logger.info("Error ColorDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with method [readOperation] of ColorDao");
+            logger.error(e.getMessage());
         }
         return color;
     }

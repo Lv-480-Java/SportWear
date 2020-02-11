@@ -9,15 +9,11 @@ package com.sportwear.dao;
 
 import com.sportwear.entity.*;
 import com.sportwear.connection.DatabaseConnect;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Formatter;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class OrderDao implements IGenericDao<Order, Long> {
     private static Logger logger = Logger.getLogger(AddressDao.class.getName());
@@ -40,8 +36,9 @@ public class OrderDao implements IGenericDao<Order, Long> {
             ps.setLong(2, order.getCount());
             ps.setBoolean(3, order.getIs_buy());
             ps.executeUpdate();
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error OrderDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with create new field of OrderDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -60,8 +57,9 @@ public class OrderDao implements IGenericDao<Order, Long> {
                 Order order = readOperation(rs);
                 orders.add(order);
             }
-        }catch (SQLException e) {
-            Logger.getGlobal().info("Error OrderDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view list of OrderDao");
+            logger.error(e.getMessage());
         }
         return orders;
     }
@@ -82,8 +80,9 @@ public class OrderDao implements IGenericDao<Order, Long> {
             while (rs.next()) {
                 order = readOperation(rs);
             }
-        }catch (SQLException e) {
-            logger.info("Error OrderDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with view OrderDao by ID");
+            logger.error(e.getMessage());
         }
         return order;
     }
@@ -104,8 +103,9 @@ public class OrderDao implements IGenericDao<Order, Long> {
             ps.setBoolean(4, order.getIs_buy());
             ps.setLong(5, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error OrderDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with update field of OrderDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -120,8 +120,9 @@ public class OrderDao implements IGenericDao<Order, Long> {
         ) {
             ps.setLong(1, id);
             ps.executeUpdate();
-        }catch (SQLException e) {
-            logger.info("Error OrderDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with delete field of OrderDao");
+            logger.error(e.getMessage());
         }
     }
 
@@ -134,8 +135,9 @@ public class OrderDao implements IGenericDao<Order, Long> {
             order.setCount(resultSet.getLong("count"));
             order.setUser_id(resultSet.getLong("user_id"));
             order.setIs_buy(resultSet.getBoolean("is_buy"));
-        }catch (SQLException e) {
-            logger.info("Error OrderDao");
+        } catch (SQLException e) {
+            logger.error("Some problems with method [readOperation] of OrderDao");
+            logger.error(e.getMessage());
         }
         return order;
     }
