@@ -8,7 +8,7 @@
 package com.sportwear.dao;
 
 import com.sportwear.entity.User;
-import com.sportwear.connection.DatabaseConnect;
+import com.sportwear.connection.DatabaseConnection;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -29,7 +29,7 @@ public class UserDao implements IGenericDao<User, Long> {
     @Override
     public void create(User user) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(INSERT_INTO_USER);
         ) {
             ps.setString(1, user.getFirst_name());
@@ -50,7 +50,7 @@ public class UserDao implements IGenericDao<User, Long> {
     public List<User> readAll() {
         List<User> users = new ArrayList<>();
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 Statement st = c.createStatement();
                 ResultSet rs = st.executeQuery(SELECT_ALL_USER);
         ) {
@@ -73,7 +73,7 @@ public class UserDao implements IGenericDao<User, Long> {
     public User readById(Long id) {
         User user = null;
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(SELECT_BY_ID_USER);
         ) {
             ps.setLong(1, id);
@@ -95,7 +95,7 @@ public class UserDao implements IGenericDao<User, Long> {
     @Override
     public void update(User user, Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(UPDATE_USER);
         ) {
             ps.setString(1, user.getFirst_name());
@@ -118,7 +118,7 @@ public class UserDao implements IGenericDao<User, Long> {
     @Override
     public void delete(Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(DELETE_USER);
         ) {
             ps.setLong(1, id);

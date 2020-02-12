@@ -8,7 +8,7 @@
 package com.sportwear.dao;
 
 import com.sportwear.entity.*;
-import com.sportwear.connection.DatabaseConnect;
+import com.sportwear.connection.DatabaseConnection;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -29,7 +29,7 @@ public class ProductDao implements IGenericDao<Product, Long> {
     @Override
     public void create(Product product) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(INSERT_INTO_PRODUCT);
         ) {
             ps.setString(1, product.getName());
@@ -51,7 +51,7 @@ public class ProductDao implements IGenericDao<Product, Long> {
     public List<Product> readAll() {
         List<Product> products = new ArrayList<>();
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 Statement st = c.createStatement();
                 ResultSet rs = st.executeQuery(SELECT_ALL_PRODUCT);
         ) {
@@ -74,7 +74,7 @@ public class ProductDao implements IGenericDao<Product, Long> {
     public Product readById(Long id) {
         Product product = null;
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(SELECT_BY_ID_PRODUCT);
         ) {
             ps.setLong(1, id);
@@ -96,7 +96,7 @@ public class ProductDao implements IGenericDao<Product, Long> {
     @Override
     public void update(Product product, Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(UPDATE_PRODUCT);
         ) {
             ps.setString(1, product.getName());
@@ -121,7 +121,7 @@ public class ProductDao implements IGenericDao<Product, Long> {
     @Override
     public void delete(Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(DELETE_PRODUCT);
         ) {
             ps.setLong(1, id);

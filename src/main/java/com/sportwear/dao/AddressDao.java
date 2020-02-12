@@ -8,7 +8,7 @@
 package com.sportwear.dao;
 
 import com.sportwear.entity.Address;
-import com.sportwear.connection.DatabaseConnect;
+import com.sportwear.connection.DatabaseConnection;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -30,7 +30,7 @@ public class AddressDao implements IGenericDao<Address, Long> {
     @Override
     public void create(Address address) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(INSERT_INTO_ADDRESS);
         ) {
             ps.setString(1, address.getCountry());
@@ -50,7 +50,7 @@ public class AddressDao implements IGenericDao<Address, Long> {
     public List<Address> readAll() {
         List<Address> addresses= new ArrayList<>();
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 Statement st = c.createStatement();
                 ResultSet rs = st.executeQuery(SELECT_ALL_ADDRESS);
         ) {
@@ -73,7 +73,7 @@ public class AddressDao implements IGenericDao<Address, Long> {
     public Address readById(Long id) {
         Address address = null;
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(SELECT_BY_ID_ADDRESS);
         ) {
             ps.setLong(1, id);
@@ -95,7 +95,7 @@ public class AddressDao implements IGenericDao<Address, Long> {
     @Override
     public void update(Address address, Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(UPDATE_ADDRESS);
         ) {
             ps.setString(1, address.getCountry());
@@ -115,7 +115,7 @@ public class AddressDao implements IGenericDao<Address, Long> {
     @Override
     public void delete(Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(DELETE_ADDRESS);
         ) {
             ps.setLong(1, id);

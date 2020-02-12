@@ -2,9 +2,9 @@ package com.sportwear.service;
 
 import com.sportwear.dao.ColorDao;
 import com.sportwear.entity.Color;
+import org.apache.log4j.Logger;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class ColorService {
     private static Logger logger = Logger.getLogger(ColorService.class.getName());

@@ -8,7 +8,7 @@
 package com.sportwear.dao;
 
 import com.sportwear.entity.Brand;
-import com.sportwear.connection.DatabaseConnect;
+import com.sportwear.connection.DatabaseConnection;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -29,7 +29,7 @@ public class BrandDao implements IGenericDao<Brand, Long> {
     @Override
     public void create(Brand brand) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(INSERT_INTO_BRAND);
         ) {
             ps.setString(1, brand.getName());
@@ -47,7 +47,7 @@ public class BrandDao implements IGenericDao<Brand, Long> {
     public List<Brand> readAll() {
         List<Brand> brands = new ArrayList<>();
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 Statement st = c.createStatement();
                 ResultSet rs = st.executeQuery(SELECT_ALL_BRAND);
         ) {
@@ -70,7 +70,7 @@ public class BrandDao implements IGenericDao<Brand, Long> {
     public Brand readById(Long id) {
         Brand brand = null;
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(SELECT_BY_ID_BRAND);
         ) {
             ps.setLong(1, id);
@@ -92,7 +92,7 @@ public class BrandDao implements IGenericDao<Brand, Long> {
     @Override
     public void update(Brand brand, Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(UPDATE_BRAND);
         ) {
             ps.setString(1, brand.getName());
@@ -110,7 +110,7 @@ public class BrandDao implements IGenericDao<Brand, Long> {
     @Override
     public void delete(Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(DELETE_BRAND);
         ) {
             ps.setLong(1, id);

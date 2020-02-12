@@ -2,11 +2,9 @@ package com.sportwear.service;
 
 import com.sportwear.dao.BrandDao;
 import com.sportwear.entity.Brand;
-import com.sportwear.entity.Product;
-import com.sportwear.entity.User;
+import org.apache.log4j.Logger;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class BrandService {
     private static Logger logger = Logger.getLogger(BrandService.class.getName());

@@ -9,18 +9,26 @@ import java.sql.SQLException;
 /**
  * Database management singleton
  */
-public class DatabaseConnect {
-    private static Logger logger = Logger.getLogger(DatabaseConnect.class.getName());
-    private static Connection connection;
+public class DatabaseConnection {
+    private static Logger logger = Logger.getLogger(DatabaseConnection.class.getName());
+    private static DatabaseConnection instance;
+    private Connection connection;
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/sport?useUnicode=true&serverTimezone=UTC";
     private static final String LOGIN = "root";
     private static final String PASSWORD = "root";
 //    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
 
-    private DatabaseConnect() {}
+    private DatabaseConnection() {}
 
-    public static Connection getConnection() {
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
+    }
+
+    public Connection getConnection() {
         try {
             Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);

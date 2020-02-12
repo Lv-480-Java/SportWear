@@ -8,7 +8,7 @@
 package com.sportwear.dao;
 
 import com.sportwear.entity.*;
-import com.sportwear.connection.DatabaseConnect;
+import com.sportwear.connection.DatabaseConnection;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -29,7 +29,7 @@ public class OrderDao implements IGenericDao<Order, Long> {
     @Override
     public void create(Order order) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(INSERT_INTO_ORDER);
         ) {
             ps.setDate(1, Date.valueOf(order.getLocalDate()));
@@ -49,7 +49,7 @@ public class OrderDao implements IGenericDao<Order, Long> {
     public List<Order> readAll() {
         List<Order> orders = new ArrayList<>();
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 Statement st = c.createStatement();
                 ResultSet rs = st.executeQuery(SELECT_ALL_ORDER);
         ) {
@@ -72,7 +72,7 @@ public class OrderDao implements IGenericDao<Order, Long> {
     public Order readById(Long id) {
         Order order = null;
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(SELECT_BY_ID_ORDER);
         ) {
             ps.setLong(1, id);
@@ -94,7 +94,7 @@ public class OrderDao implements IGenericDao<Order, Long> {
     @Override
     public void update(Order order, Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(UPDATE_ORDER);
         ) {
             ps.setDate(1, Date.valueOf(order.getLocalDate()));
@@ -115,7 +115,7 @@ public class OrderDao implements IGenericDao<Order, Long> {
     @Override
     public void delete(Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(DELETE_ORDER);
         ) {
             ps.setLong(1, id);

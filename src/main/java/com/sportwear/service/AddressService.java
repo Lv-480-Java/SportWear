@@ -2,9 +2,9 @@ package com.sportwear.service;
 
 import com.sportwear.dao.AddressDao;
 import com.sportwear.entity.Address;
+import org.apache.log4j.Logger;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class AddressService {
     private static Logger logger = Logger.getLogger(AddressService.class.getName());

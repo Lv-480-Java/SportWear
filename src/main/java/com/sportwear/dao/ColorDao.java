@@ -8,7 +8,7 @@
 package com.sportwear.dao;
 
 import com.sportwear.entity.*;
-import com.sportwear.connection.DatabaseConnect;
+import com.sportwear.connection.DatabaseConnection;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -29,7 +29,7 @@ public class ColorDao implements IGenericDao<Color, Long> {
     @Override
     public void create(Color color) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(INSERT_INTO_COLOR);
         ) {
             ps.setString(1, color.getName());
@@ -47,7 +47,7 @@ public class ColorDao implements IGenericDao<Color, Long> {
     public List<Color> readAll() {
         List<Color> colors = new ArrayList<>();
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 Statement st = c.createStatement();
                 ResultSet rs = st.executeQuery(SELECT_ALL_COLOR);
         ) {
@@ -70,7 +70,7 @@ public class ColorDao implements IGenericDao<Color, Long> {
     public Color readById(Long id) {
         Color color = null;
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(SELECT_BY_ID_COLOR);
         ) {
             ps.setLong(1, id);
@@ -92,7 +92,7 @@ public class ColorDao implements IGenericDao<Color, Long> {
     @Override
     public void update(Color color, Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(UPDATE_COLOR);
         ) {
             ps.setString(1, color.getName());
@@ -110,7 +110,7 @@ public class ColorDao implements IGenericDao<Color, Long> {
     @Override
     public void delete(Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(DELETE_COLOR);
         ) {
             ps.setLong(1, id);

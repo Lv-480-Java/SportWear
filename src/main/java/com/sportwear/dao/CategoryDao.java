@@ -8,7 +8,7 @@
 package com.sportwear.dao;
 
 import com.sportwear.entity.Category;
-import com.sportwear.connection.DatabaseConnect;
+import com.sportwear.connection.DatabaseConnection;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -29,7 +29,7 @@ public class CategoryDao implements IGenericDao<Category, Long> {
     @Override
     public void create(Category category) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(INSERT_INTO_CATEGORY);
         ) {
             ps.setString(1, category.getName());
@@ -47,7 +47,7 @@ public class CategoryDao implements IGenericDao<Category, Long> {
     public List<Category> readAll() {
         List<Category> categories = new ArrayList<>();
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 Statement st = c.createStatement();
                 ResultSet rs = st.executeQuery(SELECT_ALL_CATEGORY);
         ) {
@@ -70,7 +70,7 @@ public class CategoryDao implements IGenericDao<Category, Long> {
     public Category readById(Long id) {
         Category category = null;
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(SELECT_BY_ID_CATEGORY);
         ) {
             ps.setLong(1, id);
@@ -92,7 +92,7 @@ public class CategoryDao implements IGenericDao<Category, Long> {
     @Override
     public void update(Category category, Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(UPDATE_CATEGORY);
         ) {
             ps.setString(1, category.getName());
@@ -111,7 +111,7 @@ public class CategoryDao implements IGenericDao<Category, Long> {
     @Override
     public void delete(Long id) {
         try (
-                Connection c = DatabaseConnect.getConnection();
+                Connection c = DatabaseConnection.getInstance().getConnection();
                 PreparedStatement ps = c.prepareStatement(DELETE_CATEGORY);
         ) {
             ps.setLong(1, id);

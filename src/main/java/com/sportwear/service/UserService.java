@@ -1,12 +1,11 @@
 package com.sportwear.service;
 
 import com.sportwear.dao.UserDao;
-import com.sportwear.entity.Address;
 import com.sportwear.entity.User;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class UserService {
 //  бізнес логіка,  валідація

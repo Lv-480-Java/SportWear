@@ -2,9 +2,9 @@ package com.sportwear.service;
 
 import com.sportwear.dao.CategoryDao;
 import com.sportwear.entity.Category;
+import org.apache.log4j.Logger;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class CategoryService {
     private static Logger logger = Logger.getLogger(CategoryService.class.getName());
