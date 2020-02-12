@@ -16,9 +16,9 @@
     body {
         align-content: center;
         background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
-        color: rgba(0, 0, 0, 0.6);
         font-family: "Roboto", sans-serif;
         font-size: 14px;
+        text-align: center;
     }
     label {
         color: #ffd774 !important;
@@ -54,6 +54,7 @@
 
     <c:forEach var="brand" items="${requestScope.brands}">
         <ul>
+            <li>ID: <c:out value="${brand.id}"/></li>
             <li>Name: <c:out value="${brand.name}"/></li>
 
             <form method="post" action="<c:url value='/admin/delete-brand'/>">

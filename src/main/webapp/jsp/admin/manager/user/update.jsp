@@ -12,27 +12,75 @@
     <title>User update</title>
 </head>
 <body>
+<style>
+    html {
+        display: flex;
+        justify-content: center;
+    }
 
-    <li><c:out value="${requestScope.user.first_name}"/></li><br/>
-    <li><c:out value="${requestScope.user.last_name}"/></li><br/>
-    <li><c:out value="${requestScope.user.phone}"/></li><br/>
-    <li><c:out value="${requestScope.user.address_id}"/></li><br/>
-    <li><c:out value="${requestScope.user.email}"/></li><br/>
-    <li><c:out value="${requestScope.user.password}"/></li><br/>
+    body {
+        margin-top: 50px;
+        align-content: center;
+        background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
+        font-family: "Roboto", sans-serif;
+    }
 
-    <form method="post" action="<c:url value='/admin/update-user'/>">
+    label {
+        float: left;
+        padding-right: 10px;
+    }
 
-    <label>New user first name: <input type="text" name="first_name"/></label><br/>
-    <label>New user last name: <input type="text" name="last_name"/></label><br/>
-    <label>New user phone: <input type="text" name="phone"/></label><br/>
-    <label>New user address_id: <input type="text" name="address_id"/></label><br/>
-    <label>New user email: <input type="text" name="email"/></label><br/>
-    <label>New user password: <input type="text" name="password"/></label><br/>
+    .field {
+        clear: both;
+        text-align: right;
+        line-height: 25px;
+    }
 
-    <label><input type="number" hidden name="id" value="${requestScope.user.id}"/></label><br/>
+    .main {
+        margin: 30px;
+        float: left;
+        text-align: center;
+    }
+</style>
+    <li>ID: <c:out value="${requestScope.user.id}"/></li><br/>
+    <li>First name: <c:out value="${requestScope.user.first_name}"/></li><br/>
+    <li>Last name: <c:out value="${requestScope.user.last_name}"/></li><br/>
+    <li>Phone: <c:out value="${requestScope.user.phone}"/></li><br/>
+    <li>Address_ID: <c:out value="${requestScope.user.address_id}"/></li><br/>
+    <li>Email: <c:out value="${requestScope.user.email}"/></li><br/>
+    <li>Password: <c:out value="${requestScope.user.password}"/></li><br/>
 
-    <input type="submit" value="Ok" name="Ok"><br>
-    </form>
+    <div class="main">
+        <form method="post" action="<c:url value='/admin/update-user'/>">
 
+            <div class="field">
+                <label>New user first name:</label>
+                <input type="text" name="first_name"/><br/>
+            </div>
+            <div class="field">
+                <label>New user last name:</label>
+                <input type="text" name="last_name"/><br/>
+            </div>
+            <div class="field">
+                <label>New user phone:</label>
+                <input type="text" name="phone"/><br/>
+            </div>
+            <div class="field">
+                <label>New user address_id:</label>
+                <input type="number" name="address_id"/><br/>
+            </div>
+            <div class="field">
+                <label>New user email:</label>
+                <input type="text" name="email"/><br/>
+            </div>
+            <div class="field">
+                <label>New user password:</label>
+                <input type="text" name="password"/><br/>
+            </div>
+
+            <label><input type="number" hidden name="id" value="${requestScope.user.id}"/></label><br/>
+            <input type="submit" value="Ok" name="Ok"><br>
+        </form>
+    </div>
 </body>
 </html>

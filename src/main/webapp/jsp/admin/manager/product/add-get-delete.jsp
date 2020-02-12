@@ -16,19 +16,19 @@
     body {
         align-content: center;
         background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
-        color: rgba(0, 0, 0, 0.6);
         font-family: "Roboto", sans-serif;
         font-size: 14px;
+        text-align: center;
+    }
+
+    div {
+        margin: 30px;
+        font-size: 20px;
     }
     label {
         color: #ffd774 !important;
         text-decoration: none
     }
-    div {
-        margin: 30px;
-        font-size: 20px;
-    }
-
     .form-group button {
         outline: none;
         background: #4A5686;
@@ -45,6 +45,23 @@
     input {
         height: 25px;
     }
+
+    label {
+        float: left;
+        padding-right: 10px;
+    }
+
+    .field {
+        clear: both;
+        text-align: right;
+        line-height: 25px;
+    }
+
+    .main {
+        margin-left: 500px;
+        float: left;
+        text-align: center;
+    }
 </style>
 
 <div>
@@ -54,6 +71,7 @@
 
     <c:forEach var="product" items="${requestScope.products}">
         <ul>
+            <li>ID: <c:out value="${product.id}"/></li>
             <li>Name: <c:out value="${product.name}"/></li>
             <li>Model: <c:out value="${product.model}"/></li>
             <li>Sex: <c:out value="${product.sex}"/></li>
@@ -78,35 +96,44 @@
 
     <h2>Створення нового продукту</h2><br/>
 
-    <form method="post" action="/admin/add-product">
-        <div class="form-group">
-            <label>Product name</label>
-            <input type="text" name="name"/><br>
-
-            <label>Model</label>
-            <input type="text" name="model"/><br>
-
-            <label>Sex</label>
-            <input type="text" name="sex"/><br>
-
-            <label>Size</label>
-            <input type="number" name="size"/><br>
-
-            <label>Color_id</label>
-            <input type="number" name="color_id"/><br>
-
-            <label>Price</label>
-            <input type="number" name="price"/><br>
-
-            <label>Category_id</label>
-            <input type="number" name="category_id"/><br>
-
-            <label>Brand_id</label>
-            <input type="number" name="brand_id"/><br>
-
+    <div class="main">
+        <form method="post" action="/admin/add-product">
+            <div class="field">
+                <label>Product name</label>
+                <input type="text" name="name"/><br>
+            </div>
+            <div class="field">
+                <label>Model</label>
+                <input type="text" name="model"/><br>
+            </div>
+            <div class="field">
+                <label>Sex</label>
+                <input type="text" name="sex"/><br>
+            </div>
+            <div class="field">
+                <label>Size</label>
+                <input type="number" name="size"/><br>
+            </div>
+            <div class="field">
+                <label>Color_id</label>
+                <input type="number" name="color_id"/><br>
+            </div>
+            <div class="field">
+                <label>Price</label>
+                <input type="number" name="price"/><br>
+            </div>
+            <div class="field">
+                <label>Category_id</label>
+                <input type="number" name="category_id"/><br>
+            </div>
+            <div class="field">
+                <label>Brand_id</label>
+                <input type="number" name="brand_id"/><br>
+            </div>
             <button type="submit" value="ok">OK</button>
-        </div>
-    </form>
+        </form>
+    </div>
+
 </div>
 
 </body>

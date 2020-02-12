@@ -12,6 +12,39 @@
     <title>User</title>
 </head>
 <body>
+<style>
+    body {
+        align-content: center;
+        background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    div {
+        margin: 30px;
+        font-size: 20px;
+    }
+
+    label {
+        float: left;
+        padding-right: 10px;
+        color: #ffd774 !important;
+        text-decoration: none
+    }
+
+    .field {
+        clear: both;
+        text-align: right;
+        line-height: 25px;
+    }
+
+    .main {
+        margin-left: 500px;
+        float: left;
+        text-align: center;
+    }
+</style>
 <div>
 
 <h1>User management</h1><br/>
@@ -20,6 +53,7 @@
 
     <c:forEach var="user" items="${requestScope.users}">
         <ul>
+            <li>ID: <c:out value="${user.id}"/></li>
             <li>First name: <c:out value="${user.first_name}"/></li>
             <li>Last name: <c:out value="${user.last_name}"/></li>
             <li>Phone: <c:out value="${user.phone}"/></li>
@@ -43,35 +77,38 @@
 
     <h2>Створення нового користувача</h2><br/>
 
-    <form method="post" action="/admin/add-user">
-        <div class="form-group">
-            <label for="first_name">First name</label>
-            <input type="text" id="first_name" name="first_name" required="required"/>
-        </div>
-        <div class="form-group">
-            <label for="last_name">Last name</label>
-            <input type="text" id="last_name" name="last_name" required="required"/>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" id="phone" name="phone" required="required"/>
-        </div>
-        <div class="form-group">
-            <label for="address_id">Address_ID</label>
-            <input type="number" id="address_id" name="address_id" required="required"/>
-        </div>
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required="required"/>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required="required"/>
-        </div>
-        <div class="form-group">
-            <button type="submit">Додати</button>
-        </div>
-    </form>
+    <div class="main">
+        <form method="post" action="/admin/add-user">
+            <div class="field">
+                <label for="first_name">First name</label>
+                <input type="text" id="first_name" name="first_name" required="required"/>
+            </div>
+            <div class="field">
+                <label for="last_name">Last name</label>
+                <input type="text" id="last_name" name="last_name" required="required"/>
+            </div>
+            <div class="field">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" required="required"/>
+            </div>
+            <div class="field">
+                <label for="address_id">Address_ID</label>
+                <input type="number" id="address_id" name="address_id" required="required"/>
+            </div>
+            <div class="field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required="required"/>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required="required"/>
+            </div>
+            <div class="form-group">
+                <button type="submit">Додати</button>
+            </div>
+        </form>
+    </div>
+
 </div>
 
 </body>

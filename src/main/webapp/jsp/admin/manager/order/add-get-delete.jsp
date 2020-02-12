@@ -16,9 +16,9 @@
     body {
         align-content: center;
         background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
-        color: rgba(0, 0, 0, 0.6);
         font-family: "Roboto", sans-serif;
         font-size: 14px;
+        text-align: center;
     }
     label {
         color: #ffd774 !important;
@@ -45,6 +45,23 @@
     input {
         height: 25px;
     }
+
+    .labels {
+        float: left;
+        padding-right: 10px;
+    }
+
+    .field {
+        clear: both;
+        text-align: right;
+        line-height: 25px;
+    }
+
+    .main {
+        float: left;
+        text-align: center;
+        margin-left: 520px;
+    }
 </style>
 
 <h1>Order management</h1><br/>
@@ -53,6 +70,7 @@
 
 <c:forEach var="order" items="${requestScope.orders}">
     <ul>
+        <li>ID: <c:out value="${order.id}"/></li>
         <li>Date: <c:out value="${order.localDate}"/></li>
         <li>Count: <c:out value="${order.count}"/></li>
         <li>User_id: <c:out value="${order.user_id}"/></li>
@@ -75,20 +93,23 @@
 
 <form method="post" action="/admin/add-order">
 
-    <div class="form-group">
-
-        <label>Date</label>
-        <input type="date" name="date"><br>
-
-        <label>Count</label>
-        <input type="number" name="count"/><br>
-
-        <label>User_id</label>
-        <input type="number" name="user_id"/><br>
-
-        <label>Статус покупки</label>
-        <input type="checkbox" value="true" name="is_buy"/><br>
-
+    <div class="main">
+        <div class="field">
+            <label class="labels">Date</label>
+            <input type="date" name="date"><br>
+        </div>
+        <div class="field">
+            <label class="labels">Count</label>
+            <input type="number" name="count"/><br>
+        </div>
+        <div class="field">
+            <label class="labels">User_id</label>
+            <input type="number" name="user_id"/><br>
+        </div>
+        <div class="field">
+            <label class="labels">Статус покупки</label>
+            <input type="checkbox" value="true" name="is_buy"/><br>
+        </div>
         <button type="submit" value="ok">OK</button>
     </div>
 

@@ -16,7 +16,6 @@
             body {
                 align-content: center;
                 background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
-                color: rgba(0, 0, 0, 0.6);
                 font-family: "Roboto", sans-serif;
                 font-size: 14px;
                 text-align: center;
@@ -30,7 +29,6 @@
             div {
                 margin: 30px;
                 font-size: 20px;
-                text-align: center;
             }
 
             .form-group button {
@@ -66,6 +64,7 @@
 
             <c:forEach var="address" items="${requestScope.addresses}">
                 <ul>
+                    <li>ID: <c:out value="${address.id}"/></li>
                     <li>Country: <c:out value="${address.country}"/></li>
                     <li>City: <c:out value="${address.city}"/></li>
                     <li>Street: <c:out value="${address.street}"/></li>

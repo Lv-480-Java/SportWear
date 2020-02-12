@@ -14,36 +14,36 @@
 <body>
     <style>
     body {
-    align-content: center;
-    background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
-    color: rgba(0, 0, 0, 0.6);
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
+        align-content: center;
+        background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        text-align: center;
     }
     label {
-    color: #ffd774 !important;
-    text-decoration: none
+        color: #ffd774 !important;
+        text-decoration: none
     }
     div {
-    margin: 30px;
-    font-size: 20px;
+        margin: 30px;
+        font-size: 20px;
     }
 
     .form-group button {
-    outline: none;
-    background: #4A5686;
-    border: 0;
-    border-radius: 4px;
-    padding:  5px 10px;
-    color: #FFFFFF;
-    font-family: inherit;
-    font-weight: 500;
-    line-height: inherit;
-    text-transform: uppercase;
-    cursor: pointer;
+        outline: none;
+        background: #4A5686;
+        border: 0;
+        border-radius: 4px;
+        padding:  5px 10px;
+        color: #FFFFFF;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: inherit;
+        text-transform: uppercase;
+        cursor: pointer;
     }
     input {
-    height: 25px;
+        height: 25px;
     }
     </style>
 
@@ -53,6 +53,7 @@
 
     <c:forEach var="color" items="${requestScope.colors}">
         <ul>
+        <li>ID: <c:out value="${color.id}"/></li>
         <li>Name: <c:out value="${color.name}"/></li>
 
         <form method="post" action="<c:url value='/admin/delete-color'/>">

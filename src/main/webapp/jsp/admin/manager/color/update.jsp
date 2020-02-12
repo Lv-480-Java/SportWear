@@ -12,17 +12,48 @@
     <title>Color update</title>
 </head>
 <body>
+    <style>
+        html {
+        display: flex;
+        justify-content: center;
+        }
 
-    <li><c:out value="${requestScope.color.name}"/></li><br/>
+        body {
+        margin-top: 50px;
+        align-content: center;
+        background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
+        font-family: "Roboto", sans-serif;
+        }
 
-    <form method="post" action="<c:url value='/admin/update-color'/>">
+        label {
+        float: left;
+        padding-right: 10px;
+        }
 
-    <label>New color name: <input type="text" name="name"/></label><br/>
+        .field {
+        clear: both;
+        text-align: right;
+        line-height: 25px;
+        }
 
-    <label><input type="number" hidden name="id" value="${requestScope.color.id}"/></label><br/>
+        .main {
+        margin: 30px;
+        float: left;
+        text-align: center;
+        }
+    </style>
+        <li>ID: <c:out value="${requestScope.color.id}"/></li><br/>
+        <li>Color name: <c:out value="${requestScope.color.name}"/></li><br/>
+        <div class="main">
+            <form method="post" action="<c:url value='/admin/update-color'/>">
+            <div class="field">
+                <label>New color name:</label>
+                <input type="text" name="name"/>
+            </div>
 
-    <input type="submit" value="Ok" name="Ok"><br>
-    </form>
-
+            <label><input type="number" hidden name="id" value="${requestScope.color.id}"/></label><br/>
+            <input type="submit" value="Ok" name="Ok"><br>
+            </form>
+        </div>
 </body>
 </html>

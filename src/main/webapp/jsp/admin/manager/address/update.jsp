@@ -13,47 +13,63 @@
 </head>
 
 <body>
-<style>
-    body {
-        align-content: center;
-        background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
-        font-family: "Roboto", sans-serif;
-    }
+    <style>
+        html {
+            display: flex;
+            justify-content: center;
+        }
+        body {
+            align-content: center;
+            background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
+            font-family: "Roboto", sans-serif;
+        }
 
-    label {
-        float:left;
-        padding-right:10px;
-    }
-    .field {
-        clear:both;
-        text-align:right;
-        line-height:25px;
-    }
-    .main {
-        margin: 30px;
-        float:left;
-    }
+        label {
+            float: left;
+            padding-right: 10px;
+        }
 
-</style>
-        <li>Country [ <c:out value="${requestScope.address.country}"/> ]</li><br/>
-        <li>City [ <c:out value="${requestScope.address.city}"/> ]</li><br/>
-        <li>Street [ <c:out value="${requestScope.address.street}"/> ]</li><br/>
-        <div class="main">
-            <form method="post" action="<c:url value='/admin/update-address'/>">
-                <div class="field">
-                    <label>New country: <input type="text" name="country"/></label><br/>
-                </div>
-                <div class="field">
-                    <label>New city: <input type="text" name="city"/></label><br/>
-                </div>
-                <div class="field">
-                    <label>New street: <input type="text" name="street"/></label><br/>
-                </div>
+        .field {
+            clear: both;
+            text-align: right;
+            line-height: 25px;
+        }
 
-                <label><input type="number" hidden name="id" value="${requestScope.address.id}"/></label><br/>
+        .main {
+            margin: 30px;
+            float: left;
+            text-align: center;
+        }
 
-                <input type="submit" value="Ok" name="Ok"><br>
-            </form>
-        </div>
+    </style>
+    <li>ID: <c:out value="${requestScope.address.id}"/></li>
+    <br/>
+    <li>Country: <c:out value="${requestScope.address.country}"/></li>
+    <br/>
+    <li>City: <c:out value="${requestScope.address.city}"/></li>
+    <br/>
+    <li>Street: <c:out value="${requestScope.address.street}"/></li>
+    <br/>
+    <div class="main">
+        <form method="post" action="<c:url value='/admin/update-address'/>">
+            <div class="field">
+                <label>New country:</label>
+                <input type="text" name="country"/>
+            </div>
+            <div class="field">
+                <label>New city:</label>
+                <input type="text" name="city"/>
+            </div>
+            <div class="field">
+                <label>New street:</label>
+                <input type="text" name="street"/>
+            </div>
+
+            <label><input type="number" hidden name="id" value="${requestScope.address.id}"/></label><br/>
+
+            <input type="submit" value="Ok" name="Ok"><br>
+        </form>
+    </div>
+</body>
 </body>
 </html>
