@@ -1,11 +1,16 @@
 package com.sportwear.connection;
 
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
+/**
+ * Database management singleton
+ */
 public class DatabaseConnect {
+    private static Logger logger = Logger.getLogger(DatabaseConnect.class.getName());
     private static Connection connection;
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/sport?useUnicode=true&serverTimezone=UTC";
@@ -19,8 +24,10 @@ public class DatabaseConnect {
         try {
             Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
-        }catch (SQLException | ClassNotFoundException e) {
-            Logger.getGlobal().info("Connected Error");
+            logger.info("Connected to database  is successfully");
+        } catch (SQLException | ClassNotFoundException e) {
+            logger.error("Problem with connection to database");
+            logger.error(e.getMessage());
         }
         return connection;
     }
