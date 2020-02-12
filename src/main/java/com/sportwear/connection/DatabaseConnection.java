@@ -19,16 +19,7 @@ public class DatabaseConnection {
     private static final String PASSWORD = "root";
 //    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
 
-    private DatabaseConnection() {}
-
-    public static DatabaseConnection getInstance() {
-        if (instance == null) {
-            instance = new DatabaseConnection();
-        }
-        return instance;
-    }
-
-    public Connection getConnection() {
+    private DatabaseConnection() {
         try {
             Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
@@ -37,6 +28,20 @@ public class DatabaseConnection {
             logger.error("Problem with connection to database");
             logger.error(e.getMessage());
         }
+    }
+
+    public static DatabaseConnection getInstance() {
+        try {
+            if (instance == null || instance.getConnection().isClosed()) {
+                instance = new DatabaseConnection();
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+        return instance;
+    }
+
+    public Connection getConnection() {
         return connection;
     }
 }

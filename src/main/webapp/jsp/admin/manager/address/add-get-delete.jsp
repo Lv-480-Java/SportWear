@@ -19,14 +19,18 @@
                 color: rgba(0, 0, 0, 0.6);
                 font-family: "Roboto", sans-serif;
                 font-size: 14px;
+                text-align: center;
             }
             label {
                 color: #ffd774 !important;
-                text-decoration: none
+                text-decoration: none;
+                float:left;
+                padding-right:10px;
             }
             div {
                 margin: 30px;
                 font-size: 20px;
+                text-align: center;
             }
 
             .form-group button {
@@ -42,11 +46,20 @@
                 text-transform: uppercase;
                 cursor: pointer;
             }
+            .main {
+                float: left;
+                margin-left: 480px;
+            }
             input {
                 height: 25px;
             }
+            .field {
+                clear: both;
+                text-align: right;
+                line-height: 25px;
+            }
         </style>
-        <div>
+
             <h1>Address management</h1>
 
             <h2>Всі адреси</h2><br/>
@@ -70,20 +83,26 @@
                 <hr/>
             </c:forEach>
 
-            <h2>Створення нової адреси</h2><br/>
+            <div class="main">
+                <h2>Створення нової адреси</h2><br/>
 
-            <form method="post" action="/admin/add-address">
-                <div class="form-group">
-                    <label>country</label>
-                    <input type="text" name="country"/><br>
-                    <label>city</label>
-                    <input type="text" name="city"/><br>
-                    <label>street</label>
-                    <input type="text" name="street"/><br>
-
-                    <button type="submit" value="ok">OK</button>
-                </div>
-            </form>
-        </div>
+                <form method="post" action="/admin/add-address">
+                    <div class="form-group">
+                        <div class="field">
+                            <label>country</label>
+                            <input type="text" name="country"/><br>
+                        </div>
+                        <div class="field">
+                            <label>city</label>
+                            <input type="text" name="city"/><br>
+                        </div>
+                        <div class="field">
+                            <label>street</label>
+                            <input type="text" name="street"/><br>
+                        </div>
+                        <button type="submit" value="ok">OK</button>
+                    </div>
+                </form>
+            </div>
     </body>
 </html>

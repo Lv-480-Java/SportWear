@@ -11,22 +11,49 @@
 <head>
     <title>Update Address</title>
 </head>
+
 <body>
+<style>
+    body {
+        align-content: center;
+        background: linear-gradient(100deg, rgba(66, 80, 245, 0.8) 0%, rgba(66, 80, 245, 0.4) 100%);
+        font-family: "Roboto", sans-serif;
+    }
 
-        <li><c:out value="${requestScope.address.country}"/></li><br/>
-        <li><c:out value="${requestScope.address.city}"/></li><br/>
-        <li><c:out value="${requestScope.address.street}"/></li><br/>
+    label {
+        float:left;
+        padding-right:10px;
+    }
+    .field {
+        clear:both;
+        text-align:right;
+        line-height:25px;
+    }
+    .main {
+        margin: 30px;
+        float:left;
+    }
 
-        <form method="post" action="<c:url value='/admin/update-address'/>">
+</style>
+        <li>Country [ <c:out value="${requestScope.address.country}"/> ]</li><br/>
+        <li>City [ <c:out value="${requestScope.address.city}"/> ]</li><br/>
+        <li>Street [ <c:out value="${requestScope.address.street}"/> ]</li><br/>
+        <div class="main">
+            <form method="post" action="<c:url value='/admin/update-address'/>">
+                <div class="field">
+                    <label>New country: <input type="text" name="country"/></label><br/>
+                </div>
+                <div class="field">
+                    <label>New city: <input type="text" name="city"/></label><br/>
+                </div>
+                <div class="field">
+                    <label>New street: <input type="text" name="street"/></label><br/>
+                </div>
 
-            <label>New country: <input type="text" name="country"/></label><br/>
-            <label>New city: <input type="text" name="city"/></label><br/>
-            <label>New street: <input type="text" name="street"/></label><br/>
+                <label><input type="number" hidden name="id" value="${requestScope.address.id}"/></label><br/>
 
-            <label><input type="number" hidden name="id" value="${requestScope.address.id}"/></label><br/>
-
-            <input type="submit" value="Ok" name="Ok"><br>
-        </form>
-
+                <input type="submit" value="Ok" name="Ok"><br>
+            </form>
+        </div>
 </body>
 </html>
