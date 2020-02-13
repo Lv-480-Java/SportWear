@@ -25,6 +25,11 @@
         margin: 30px;
         font-size: 20px;
     }
+
+    #admin-page {
+        color: #a60305;
+    }
+
     label {
         color: #ffd774 !important;
         text-decoration: none
@@ -132,6 +137,7 @@
             </div>
             <button type="submit" value="ok">OK</button>
         </form>
+        <div><a href="/admin/admin-service"><u id="admin-page">Back to Admin Service</u></a><br></div>
     </div>
 
 </div>

@@ -1,7 +1,7 @@
 package com.sportwear.servlet.admin.brand;
 
 import com.sportwear.entity.Brand;
-import com.sportwear.service.BrandService;
+import com.sportwear.service.brand.BrandService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

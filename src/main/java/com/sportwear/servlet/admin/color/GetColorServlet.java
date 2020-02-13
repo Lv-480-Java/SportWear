@@ -1,7 +1,6 @@
 package com.sportwear.servlet.admin.color;
 
-import com.sportwear.service.CategoryService;
-import com.sportwear.service.ColorService;
+import com.sportwear.service.color.ColorService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

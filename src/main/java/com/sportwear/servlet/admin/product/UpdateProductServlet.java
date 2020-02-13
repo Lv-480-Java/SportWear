@@ -1,9 +1,7 @@
 package com.sportwear.servlet.admin.product;
 
-import com.sportwear.entity.Order;
 import com.sportwear.entity.Product;
-import com.sportwear.service.OrderService;
-import com.sportwear.service.ProductService;
+import com.sportwear.service.product.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDate;
 
 @WebServlet("/admin/update-product")
 public class UpdateProductServlet extends HttpServlet {

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SignUp</title>
+    <title>Registration</title>
 </head>
 <body>
 <style>
@@ -19,11 +19,6 @@
         line-height: 1.6em;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-    }
-
-    a {
-        color: #fff !important;
-        text-decoration: none
     }
 
     .overlay, .form-panel.one:before {
@@ -87,7 +82,6 @@
         -webkit-box-pack: justify;
         justify-content: space-between;
         margin: 0 0 20px;
-        padding-top: 10px;
     }
 
     .form-group:last-child {
@@ -181,29 +175,36 @@
     <div class="form-toggle"></div>
     <div class="form-panel one">
         <div class="form-header">
-            <h1>Авторизація</h1>
+            <h1>Реєстрація</h1>
         </div>
         <div class="form-content">
-            <form method="post" action="">
-                <div class="form-group">
-                    <label for="username">Email</label>
-                    <input type="text" id="username" name="username" required="required"/>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required="required"/>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Вхід</button>
-                </div>
-
-            </form>
-            <div class="form-group">
-                <button type="submit"><a class="text" href="/jsp/registration.html">Зареєструватися</a></button>
+            <div class="form-content">
+                <form method="post" action="/registration">
+                    <div class="form-group">
+                        <label for="first_name">First name</label>
+                        <input type="text" id="first_name" name="first_name" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last name</label>
+                        <input type="text" id="last_name" name="last_name" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Зареєструватися</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-</div>
-
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.sportwear.servlet.admin;
+package com.sportwear.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/admin-service")
-public class AdminControllerManagement extends HttpServlet {
+@WebServlet("/homepage")
+public class HomePageServlet extends HttpServlet {
 
-    private static final String pageAdmin = "/jsp/admin/adminManager.jsp";
+    private static final String pageHomePage = "/jsp/index.html";
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher(pageAdmin).forward(request, response);
+        request.getRequestDispatcher(pageHomePage).forward(request, response);
     }
 
 }

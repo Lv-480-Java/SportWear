@@ -19,6 +19,7 @@ public class UserDao implements IGenericDao<User, Long> {
     private static Logger logger = Logger.getLogger(AddressDao.class.getName());
     private static final String SELECT_ALL_USER = "select * from users";
     private static final String SELECT_BY_ID_USER = "select * from users where id=?";
+    private static final String SELECT_BY_EMAIL = "select * from users where email=?";
     private static final String INSERT_INTO_USER = "insert into users (first_name, last_name, email, password) values (?, ?, ?, ?)";
     private static final String UPDATE_USER = "update users set first_name=?, last_name=?, phone=?, address_id=?, email=?, password=? where id=?";
     private static final String DELETE_USER = "delete from users where id=?";
@@ -89,6 +90,28 @@ public class UserDao implements IGenericDao<User, Long> {
     }
 
     /**
+     * @param email
+     * @return user
+     */
+    public User readByEmail(String email) {
+        User user = null;
+        try (
+                Connection c = DatabaseConnection.getInstance().getConnection();
+                PreparedStatement ps = c.prepareStatement(SELECT_BY_EMAIL);
+        ) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                user = readOperation(rs);
+            }
+        } catch (SQLException e) {
+            logger.error("Some problems with view UserDao by Email");
+            logger.error(e.getMessage());
+        }
+        return user;
+    }
+
+    /**
      * @param user
      * @param id
      */
@@ -129,6 +152,10 @@ public class UserDao implements IGenericDao<User, Long> {
         }
     }
 
+    /**
+     * @return user
+     * method for readById and readAll
+     */
     private User readOperation(ResultSet resultSet) {
         User user = null;
         try {
@@ -140,6 +167,7 @@ public class UserDao implements IGenericDao<User, Long> {
             user.setPassword(resultSet.getString("password"));
             user.setPhone(resultSet.getString("phone"));
             user.setAddress_id(resultSet.getLong("address_id"));
+            user.setUserRole(resultSet.getString("user_role"));
         } catch (SQLException e) {
             logger.error("Some problems with method [readOperation] of UserDao");
             logger.error(e.getMessage());

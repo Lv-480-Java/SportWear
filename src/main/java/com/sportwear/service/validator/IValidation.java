@@ -1,6 +1,6 @@
 package com.sportwear.service.validator;
 
-public interface IValidator {
+public interface IValidation {
     // validator email
 
     // validator password

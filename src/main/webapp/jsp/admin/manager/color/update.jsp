@@ -41,6 +41,10 @@
         float: left;
         text-align: center;
         }
+
+        #admin-page {
+        color: #a60305;
+        }
     </style>
         <li>ID: <c:out value="${requestScope.color.id}"/></li><br/>
         <li>Color name: <c:out value="${requestScope.color.name}"/></li><br/>
@@ -54,6 +58,7 @@
             <label><input type="number" hidden name="id" value="${requestScope.color.id}"/></label><br/>
             <input type="submit" value="Ok" name="Ok"><br>
             </form>
+        <div><a href="/admin/color-index"><u id="admin-page">Back to Panel Management</u></a><br></div>
         </div>
 </body>
 </html>

@@ -1,9 +1,7 @@
 package com.sportwear.servlet.admin.category;
 
-import com.sportwear.entity.Address;
 import com.sportwear.entity.Category;
-import com.sportwear.service.AddressService;
-import com.sportwear.service.CategoryService;
+import com.sportwear.service.category.CategoryService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

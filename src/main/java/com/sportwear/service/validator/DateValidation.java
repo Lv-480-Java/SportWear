@@ -3,15 +3,12 @@ package com.sportwear.service.validator;
 import java.time.LocalDate;
 
 public class DateValidation {
-
     static public boolean isOk(LocalDate date) {
         boolean isOk = false;
 
         if (date.isAfter(LocalDate.now()) && date.isBefore(LocalDate.now().plusYears(10))) {
             isOk = true;
         }
-
         return isOk;
     }
-
 }

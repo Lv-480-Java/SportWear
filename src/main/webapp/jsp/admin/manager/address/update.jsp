@@ -41,6 +41,10 @@
             text-align: center;
         }
 
+        #admin-page {
+            color: #a60305;
+        }
+
     </style>
     <li>ID: <c:out value="${requestScope.address.id}"/></li>
     <br/>
@@ -69,6 +73,7 @@
 
             <input type="submit" value="Ok" name="Ok"><br>
         </form>
+        <div><a href="/admin/address-index"><u id="admin-page">Back to Panel Management</u></a><br></div>
     </div>
 </body>
 </body>

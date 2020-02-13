@@ -25,6 +25,10 @@
         font-family: "Roboto", sans-serif;
     }
 
+    #admin-page {
+        color: #a60305;
+    }
+
     label {
         float: left;
         padding-right: 10px;
@@ -92,6 +96,7 @@
         <label><input type="number" hidden name="id" value="${requestScope.product.id}"/></label><br/>
         <input type="submit" value="Ok" name="Ok"><br>
     </form>
+    <div><a href="/admin/product-index"><u id="admin-page">Back to Panel Management</u></a><br></div>
 </div>
 </body>
 </html>

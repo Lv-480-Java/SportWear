@@ -121,6 +121,10 @@ public class ColorDao implements IGenericDao<Color, Long> {
         }
     }
 
+    /**
+     * @return color
+     * method for readById and readAll
+     */
     private Color readOperation(ResultSet resultSet) {
         Color color = null;
         try {

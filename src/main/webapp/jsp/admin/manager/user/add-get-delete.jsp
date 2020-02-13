@@ -26,6 +26,10 @@
         font-size: 20px;
     }
 
+    #admin-page {
+        color: #a60305;
+    }
+
     label {
         float: left;
         padding-right: 10px;
@@ -107,6 +111,7 @@
                 <button type="submit">Додати</button>
             </div>
         </form>
+        <div><a href="/admin/admin-service"><u id="admin-page">Back to Admin Service</u></a><br></div>
     </div>
 
 </div>

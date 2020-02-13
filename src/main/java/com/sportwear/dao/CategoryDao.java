@@ -122,6 +122,10 @@ public class CategoryDao implements IGenericDao<Category, Long> {
         }
     }
 
+    /**
+     * @return category
+     * method for readById and readAll
+     */
     private Category readOperation(ResultSet resultSet) {
         Category category = null;
         try {

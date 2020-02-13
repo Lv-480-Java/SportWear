@@ -121,6 +121,10 @@ public class BrandDao implements IGenericDao<Brand, Long> {
         }
     }
 
+    /**
+     * @return brand
+     * method for readById and readAll
+     */
     private Brand readOperation(ResultSet resultSet) {
         Brand brand = null;
         try {

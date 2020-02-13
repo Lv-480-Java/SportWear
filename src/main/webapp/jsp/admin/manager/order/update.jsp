@@ -27,6 +27,10 @@
         font-size: 20px;
     }
 
+    #admin-page {
+        color: #a60305;
+    }
+
     .form-group button {
         outline: none;
         background: #4A5686;
@@ -86,6 +90,7 @@
         <label><input type="number" hidden name="id" value="${requestScope.order.id}"/></label><br/>
         <input type="submit" value="Ok" name="Ok"><br>
     </form>
+    <div><a href="/admin/order-index"><u id="admin-page">Back to Panel Management</u></a><br></div>
 </div>
 </body>
 </html>

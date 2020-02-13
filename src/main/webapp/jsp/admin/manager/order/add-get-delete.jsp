@@ -29,6 +29,10 @@
         font-size: 20px;
     }
 
+    #admin-page {
+        color: #a60305;
+    }
+
     .form-group button {
         outline: none;
         background: #4A5686;
@@ -111,8 +115,9 @@
             <input type="checkbox" value="true" name="is_buy"/><br>
         </div>
         <button type="submit" value="ok">OK</button>
+        <div><a href="/admin/admin-service"><u id="admin-page">Back to Admin Service</u></a><br></div>
     </div>
-
 </form>
+
 </body>
 </html>

@@ -132,6 +132,10 @@ public class ProductDao implements IGenericDao<Product, Long> {
         }
     }
 
+    /**
+     * @return product
+     * method for readById and readAll
+     */
     private Product readOperation(ResultSet resultSet) {
         Product product = null;
         try {

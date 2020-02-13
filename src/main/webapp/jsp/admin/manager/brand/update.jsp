@@ -23,6 +23,10 @@
     .ok {
         margin-left: 30px;
     }
+
+    #admin-page {
+        color: #a60305;
+    }
 </style>
         <li>ID: <c:out value="${requestScope.brand.id}"/></li><br/>
         <li>Brand name: <c:out value="${requestScope.brand.name}"/></li><br/>
@@ -36,6 +40,7 @@
 
                 <input class="ok" type="submit" value="Ok" name="Ok"><br>
             </form>
+            <div><a href="/admin/brand-index"><u id="admin-page">Back to Panel Management</u></a><br></div>
         </div>
 </body>
 </html>

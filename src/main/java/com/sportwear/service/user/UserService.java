@@ -1,14 +1,15 @@
-package com.sportwear.service;
+package com.sportwear.service.user;
 
 import com.sportwear.dao.UserDao;
 import com.sportwear.entity.User;
+import com.sportwear.entity.UserRole;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class UserService {
-//  бізнес логіка,  валідація
     private static Logger logger = Logger.getLogger(UserService.class.getName());
     private UserDao userDao = new UserDao();
 
@@ -25,12 +26,24 @@ public class UserService {
         return userDao.readById(id);
     }
 
+    public User getOneUser(String email) {
+        return userDao.readByEmail(email);
+    }
+
     public void update(User user, Long id) {
         userDao.update(user, id);
     }
 
     public void remove(Long id) {
         userDao.delete(id);
+    }
+
+    public boolean isAdmin(String userRole) {
+        return UserRole.valueOf(userRole) == UserRole.ROLE_ADMIN;
+    }
+
+    public boolean isUser(String userRole) {
+        return UserRole.valueOf(userRole) == UserRole.ROLE_USER;
     }
 
     private boolean requestIsValid(final HttpServletRequest request) {

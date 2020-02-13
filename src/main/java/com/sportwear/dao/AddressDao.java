@@ -126,6 +126,10 @@ public class AddressDao implements IGenericDao<Address, Long> {
         }
     }
 
+    /**
+     * @return address
+     * method for readById and readAll
+     */
     private Address readOperation(ResultSet resultSet) {
         Address address = null;
         try {

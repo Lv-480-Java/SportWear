@@ -22,6 +22,9 @@
         h1 {
             color: #a60305;
         }
+        #admin-page {
+            color: #a60305;
+        }
         a {
             color: #f6fffd !important;
             text-decoration: none
@@ -39,14 +42,16 @@
         <h1>Admin Service</h1><br>
         <form method="get" action="">
             <div class="form-group">
-                <div><a href="admin/address-index"><u>Address Menu</u></a><br></div>
-                <div><a href="admin/brand-index"><u>Brand Menu</u></a><br></div>
-                <div><a href="admin/category-index"><u>Category Menu</u></a><br></div>
-                <div><a href="admin/color-index"><u>Color Menu</u></a><br></div>
-                <div><a href="admin/order-index"><u>Order Menu</u></a><br></div>
-                <div><a href="admin/product-index"><u>Product Menu</u></a><br></div>
-                <div><a href="admin/user-index"><u>Users Menu</u></a><br></div>
+                <div><a href="/admin/address-index"><u>Address Menu</u></a><br></div>
+                <div><a href="/admin/brand-index"><u>Brand Menu</u></a><br></div>
+                <div><a href="/admin/category-index"><u>Category Menu</u></a><br></div>
+                <div><a href="/admin/color-index"><u>Color Menu</u></a><br></div>
+                <div><a href="/admin/order-index"><u>Order Menu</u></a><br></div>
+                <div><a href="/admin/product-index"><u>Product Menu</u></a><br></div>
+                <div><a href="/admin/user-index"><u>Users Menu</u></a><br></div>
             </div>
+            <br>
+            <div><a href="/admin/adminPage"><u id="admin-page">Back to Admin Home Page</u></a><br></div>
         </form>
     </div>
     </body>

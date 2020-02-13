@@ -1,7 +1,6 @@
 package com.sportwear.servlet.admin.product;
 
-import com.sportwear.service.OrderService;
-import com.sportwear.service.ProductService;
+import com.sportwear.service.product.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

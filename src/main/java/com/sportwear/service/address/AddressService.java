@@ -1,4 +1,4 @@
-package com.sportwear.service;
+package com.sportwear.service.address;
 
 import com.sportwear.dao.AddressDao;
 import com.sportwear.entity.Address;

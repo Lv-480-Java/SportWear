@@ -1,9 +1,7 @@
 package com.sportwear.servlet.admin.order;
 
-import com.sportwear.entity.Color;
 import com.sportwear.entity.Order;
-import com.sportwear.service.ColorService;
-import com.sportwear.service.OrderService;
+import com.sportwear.service.order.OrderService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

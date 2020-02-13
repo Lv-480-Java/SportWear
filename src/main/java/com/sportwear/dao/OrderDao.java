@@ -126,6 +126,10 @@ public class OrderDao implements IGenericDao<Order, Long> {
         }
     }
 
+    /**
+     * @return order
+     * method for readById and readAll
+     */
     private Order readOperation(ResultSet resultSet) {
         Order order = null;
         try {

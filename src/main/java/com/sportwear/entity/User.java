@@ -12,23 +12,20 @@ public class User implements IUser{
     private String password;
     private String phone;
     private Long address_id;
-    private UserRole userRole;
+    private String userRole;
 
-    private List<Customer> customerList = new ArrayList<>();
 
     public User() {
     }
 
     public User(String first_name, String last_name, String email, String password, String phone,
-                Long address_id, UserRole userRole, List<Customer> customerList) {
+                Long address_id) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.phone = phone;
         this.address_id = address_id;
         this.email = email;
         this.password = password;
-        this.userRole = userRole;
-        this.customerList = customerList;
     }
 
     public Long getId() {
@@ -90,30 +87,12 @@ public class User implements IUser{
         this.address_id = address_id;
     }
 
-
-
-    public UserRole getUserRole() {
+    public String getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(UserRole userRole) {
+    public void setUserRole(String userRole) {
         this.userRole = userRole;
-    }
-
-    public List<Customer> getCustomerList() {
-        return customerList;
-    }
-
-    public void setCustomerList(List<Customer> customerList) {
-        this.customerList = customerList;
-    }
-
-    public boolean isAdmin() {
-        return userRole == UserRole.ROLE_ADMIN;
-    }
-
-    public boolean isJustUser() {
-        return userRole == UserRole.ROLE_USER;
     }
 
 }

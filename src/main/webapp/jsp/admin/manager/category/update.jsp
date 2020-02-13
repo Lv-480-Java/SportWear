@@ -42,6 +42,10 @@
         text-align: center;
     }
 
+    #admin-page {
+        color: #a60305;
+    }
+
 </style>
         <li>ID: <c:out value="${requestScope.category.id}"/></li><br/>
         <li>Category name: <c:out value="${requestScope.category.name}"/></li><br/>
@@ -60,6 +64,7 @@
                 <label><input type="number" hidden name="id" value="${requestScope.category.id}"/></label><br/>
                 <input type="submit" value="Ok" name="Ok"><br>
             </form>
+            <div><a href="/admin/category-index"><u id="admin-page">Back to Panel Management</u></a><br></div>
         </div>
 </body>
 </html>

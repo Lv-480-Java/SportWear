@@ -1,7 +1,6 @@
 package com.sportwear.servlet.admin.user;
 
-import com.sportwear.service.ProductService;
-import com.sportwear.service.UserService;
+import com.sportwear.service.user.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

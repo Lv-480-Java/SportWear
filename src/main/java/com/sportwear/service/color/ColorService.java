@@ -1,4 +1,4 @@
-package com.sportwear.service;
+package com.sportwear.service.color;
 
 import com.sportwear.dao.ColorDao;
 import com.sportwear.entity.Color;

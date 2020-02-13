@@ -1,7 +1,6 @@
 package com.sportwear.servlet.admin.address;
 
-import com.sportwear.service.AddressService;
-import com.sportwear.service.BrandService;
+import com.sportwear.service.address.AddressService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,3 +1,10 @@
+/*
+ *
+ * Author: Vadym Puiko
+ *
+ * Date: 17.02.2020
+ *
+ */
 package com.sportwear.connection;
 
 import org.apache.log4j.Logger;

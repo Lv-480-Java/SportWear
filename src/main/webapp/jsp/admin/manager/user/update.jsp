@@ -41,6 +41,10 @@
         float: left;
         text-align: center;
     }
+
+    #admin-page {
+        color: #a60305;
+    }
 </style>
     <li>ID: <c:out value="${requestScope.user.id}"/></li><br/>
     <li>First name: <c:out value="${requestScope.user.first_name}"/></li><br/>
@@ -81,6 +85,7 @@
             <label><input type="number" hidden name="id" value="${requestScope.user.id}"/></label><br/>
             <input type="submit" value="Ok" name="Ok"><br>
         </form>
+        <div><a href="/admin/user-index"><u id="admin-page">Back to Panel Management</u></a><br></div>
     </div>
 </body>
 </html>

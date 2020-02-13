@@ -1,4 +1,4 @@
-package com.sportwear.service;
+package com.sportwear.service.category;
 
 import com.sportwear.dao.CategoryDao;
 import com.sportwear.entity.Category;
