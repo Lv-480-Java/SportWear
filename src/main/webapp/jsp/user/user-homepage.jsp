@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Admin
+  Date: 13.02.2020
+  Time: 15:07
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -23,6 +30,7 @@
     <script type="text/javascript">window.dataLayer = window.dataLayer || [];</script>
 
 </head>
+
 <body class="t-body" style="margin:0;">
 
 <div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="2005598"
@@ -47,10 +55,11 @@
              data-bgcolor-rgba-afterscroll="rgba(5,14,92,0.60)" data-menu-items-align="right" data-menu="yes">
             <div class="t456__maincontainer " style="height:100px;">
                 <div class="t456__leftwrapper" style="">
-                    <div><a href="/homepage" style="color:#ffffff;">
+                    <div><a href="/user/user-homepage" style="color:#ffffff;">
                         <div class="t456__logo t-title" field="title" style="color:#ffffff;">
                             <div style="font-size:20px;line-height:16px;text-align:center;" data-customstyle="yes">
                                 <span style="font-size: 36px;">SportWear</span>
+                                <br/>
                                 <br>
                                 <span style="font-size: 14px;">магазин спортивного одягу</span>
                                 <br/>
@@ -61,10 +70,10 @@
                 </div>
                 <div class="t456__rightwrapper t456__menualign_right" style="">
                     <ul class="t456__list">
-                        <li class="t456__list_item"><a class="t-menu__link-item" href="/homepage"
+                        <li class="t456__list_item"><a class="t-menu__link-item" href="/user/user-homepage"
                                                        style="color:#ccc4c4;font-size:18px;font-weight:600;"
                                                        data-menu-item-number="1">Головна</a></li>
-                        <li class="t456__list_item"><a class="t-menu__link-item t-cover__arrow-svg" href="#shop"
+                        <li class="t456__list_item"><a class="t-menu__link-item" href="#shop"
                                                        data-menu-submenu-hook=""
                                                        style="color:#ccc4c4;font-size:18px;font-weight:600;"
                                                        data-menu-item-number="2">Категорії</a></li>
@@ -75,11 +84,13 @@
                                                        data-menu-submenu-hook=""
                                                        style="color:#ccc4c4;font-size:18px;font-weight:600;"
                                                        data-menu-item-number="4">Контакти</a></li>
-                        <li class="t456__list_item"><a class="t-menu__link-item" href="/signUp"
-                                                       data-menu-submenu-hook=""
+                        <li class="t456__list_item"><a class="t-menu__link-item" href="#cart" data-menu-submenu-hook=""
                                                        style="color:#ccc4c4;font-size:18px;font-weight:600;"
-                                                       data-menu-item-number="5">Вхід</a></li>
-
+                                                       data-menu-item-number="5">Корзина</a></li>
+                        <li class="t456__list_item"><a class="t-menu__link-item" href="/logout"
+                                                       data-menu-submenu-hook=""
+                                                       style="color:#cc3a48;font-size:18px;font-weight:600;"
+                                                       data-menu-item-number="6">Logout</a></li>
                     </ul>
                 </div>
             </div>

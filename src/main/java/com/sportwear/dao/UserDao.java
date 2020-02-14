@@ -9,6 +9,7 @@ package com.sportwear.dao;
 
 import com.sportwear.entity.User;
 import com.sportwear.connection.DatabaseConnection;
+import com.sportwear.entity.UserRole;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -167,7 +168,7 @@ public class UserDao implements IGenericDao<User, Long> {
             user.setPassword(resultSet.getString("password"));
             user.setPhone(resultSet.getString("phone"));
             user.setAddress_id(resultSet.getLong("address_id"));
-            user.setUserRole(resultSet.getString("user_role"));
+            user.setUserRole(UserRole.valueOf(resultSet.getString("user_role")));
         } catch (SQLException e) {
             logger.error("Some problems with method [readOperation] of UserDao");
             logger.error(e.getMessage());

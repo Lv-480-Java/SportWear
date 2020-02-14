@@ -32,7 +32,7 @@ public class UserAuthenticationFilter implements Filter {
 
         if (user == null) {
             resp.sendRedirect("/signUp");
-        } else if (UserRole.valueOf(user.getUserRole()) == (UserRole.ROLE_USER)) {
+        } else if (user.getUserRole() == (UserRole.ROLE_USER)) {
             filterChain.doFilter(servletRequest, servletResponse);
         }
     }

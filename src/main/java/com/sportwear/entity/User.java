@@ -1,7 +1,5 @@
 package com.sportwear.entity;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class User implements IUser{
 
@@ -12,7 +10,7 @@ public class User implements IUser{
     private String password;
     private String phone;
     private Long address_id;
-    private String userRole;
+    private UserRole userRole;
 
 
     public User() {
@@ -87,11 +85,11 @@ public class User implements IUser{
         this.address_id = address_id;
     }
 
-    public String getUserRole() {
+    public UserRole getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(String userRole) {
+    public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
     }
 

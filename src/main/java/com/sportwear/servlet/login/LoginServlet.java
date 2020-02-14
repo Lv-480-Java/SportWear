@@ -31,17 +31,20 @@ public class LoginServlet extends HttpServlet {
         if (loginService.checkUserProperties(email, password)) {
             User user = userService.getOneUser(email);
             if (userService.isUser(user.getUserRole())) {
+                logger.info("Login like just user successful");
                 HttpSession session = req.getSession();
                 session.setAttribute("user", user);
                 requestDispatcher = req.getRequestDispatcher("/jsp/user/user-homepage.jsp");
                 requestDispatcher.forward(req, resp);
             } else if (userService.isAdmin(user.getUserRole())) {
+                logger.info("Login like admin successful");
                 HttpSession session = req.getSession();
                 session.setAttribute("user", user);
                 requestDispatcher = req.getRequestDispatcher("/jsp/admin/adminHomePage.jsp");
                 requestDispatcher.forward(req, resp);
             }
         } else {
+            logger.error("Invalid login");
             requestDispatcher = req.getRequestDispatcher("jsp/invalid/invalidLogin.jsp");
             requestDispatcher.forward(req, resp);
         }

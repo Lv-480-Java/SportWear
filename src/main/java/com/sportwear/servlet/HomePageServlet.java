@@ -17,5 +17,4 @@ public class HomePageServlet extends HttpServlet {
             throws ServletException, IOException {
         request.getRequestDispatcher(pageHomePage).forward(request, response);
     }
-
 }

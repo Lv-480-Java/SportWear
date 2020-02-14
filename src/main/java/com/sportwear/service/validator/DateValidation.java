@@ -3,6 +3,7 @@ package com.sportwear.service.validator;
 import java.time.LocalDate;
 
 public class DateValidation {
+
     static public boolean isOk(LocalDate date) {
         boolean isOk = false;
 

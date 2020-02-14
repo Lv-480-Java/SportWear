@@ -30,7 +30,7 @@ public class AdminAuthenticationFilter implements Filter {
 
        if (user == null){
             resp.sendRedirect("/signUp");
-        } else if (UserRole.valueOf(user.getUserRole()) == (UserRole.ROLE_ADMIN)) {
+        } else if (user.getUserRole() == (UserRole.ROLE_ADMIN)) {
            filterChain.doFilter(servletRequest, servletResponse);
        }
     }

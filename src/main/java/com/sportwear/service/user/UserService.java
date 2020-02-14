@@ -6,7 +6,6 @@ import com.sportwear.entity.UserRole;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class UserService {
@@ -38,12 +37,12 @@ public class UserService {
         userDao.delete(id);
     }
 
-    public boolean isAdmin(String userRole) {
-        return UserRole.valueOf(userRole) == UserRole.ROLE_ADMIN;
+    public boolean isAdmin(UserRole userRole) {
+        return userRole == UserRole.ROLE_ADMIN;
     }
 
-    public boolean isUser(String userRole) {
-        return UserRole.valueOf(userRole) == UserRole.ROLE_USER;
+    public boolean isUser(UserRole userRole) {
+        return userRole == UserRole.ROLE_USER;
     }
 
     private boolean requestIsValid(final HttpServletRequest request) {
