@@ -1,17 +1,15 @@
 package com.sportwear.service.validator;
 
+import org.apache.log4j.Logger;
+
 public class PasswordValidation {
+    private static Logger logger = Logger.getLogger(PasswordValidation.class.getName());
 
-    public void validate (String password, String passwordRepeat) {
-        length(password);
-        if (!password.equalsIgnoreCase(passwordRepeat)) {
-            throw new IllegalArgumentException("Repeat password must equals password");
+    public boolean length(String password) {
+        if (password.length() < 4) {
+            logger.error("Password length must be at least 4 symbols");
+            return true;
         }
-    }
-
-    private void length(String password) {
-        if (password.length() < 5) {
-            throw new IllegalArgumentException("Password length must be at least 5 symbols");
-        }
+        return false;
     }
 }

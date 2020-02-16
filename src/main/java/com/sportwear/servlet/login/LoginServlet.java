@@ -1,7 +1,6 @@
 package com.sportwear.servlet.login;
 
 import com.sportwear.entity.User;
-import com.sportwear.entity.UserRole;
 import com.sportwear.service.user.UserService;
 import com.sportwear.service.login.LoginService;
 import org.apache.log4j.Logger;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -44,8 +42,8 @@ public class LoginServlet extends HttpServlet {
                 requestDispatcher.forward(req, resp);
             }
         } else {
-            logger.error("Invalid login");
-            requestDispatcher = req.getRequestDispatcher("jsp/invalid/invalidLogin.jsp");
+            logger.error("Invalid login or password");
+            requestDispatcher = req.getRequestDispatcher("jsp/invalidParam/invalidLogin.jsp");
             requestDispatcher.forward(req, resp);
         }
     }

@@ -73,14 +73,10 @@
                                                        data-menu-submenu-hook=""
                                                        style="color:#ccc4c4;font-size:18px;font-weight:600;"
                                                        data-menu-item-number="5">Адмін панель</a></li>
-                        <li class="t456__list_item"><a class="t-menu__link-item" href="/admin/category-index"
-                                                       data-menu-submenu-hook=""
-                                                       style="color:#ccc4c4;font-size:18px;font-weight:600;"
-                                                       data-menu-item-number="2">Редагування категорій</a></li>
                         <li class="t456__list_item"><a class="t-menu__link-item" href="/logout"
                                                        data-menu-submenu-hook=""
                                                        style="color:#cc3a48;font-size:18px;font-weight:600;"
-                                                       data-menu-item-number="6">Logout</a></li>
+                                                       data-menu-item-number="6">Вихід</a></li>
                     </ul>
                 </div>
             </div>

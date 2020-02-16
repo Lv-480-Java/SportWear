@@ -70,9 +70,9 @@
                 </div>
                 <div class="t456__rightwrapper t456__menualign_right" style="">
                     <ul class="t456__list">
-                        <li class="t456__list_item"><a class="t-menu__link-item" href="/user/user-homepage"
+                        <li class="t456__list_item"><a class="t-menu__link-item" href="/user/user-profile"
                                                        style="color:#ccc4c4;font-size:18px;font-weight:600;"
-                                                       data-menu-item-number="1">Головна</a></li>
+                                                       data-menu-item-number="1">Профіль</a></li>
                         <li class="t456__list_item"><a class="t-menu__link-item" href="#shop"
                                                        data-menu-submenu-hook=""
                                                        style="color:#ccc4c4;font-size:18px;font-weight:600;"
@@ -90,7 +90,7 @@
                         <li class="t456__list_item"><a class="t-menu__link-item" href="/logout"
                                                        data-menu-submenu-hook=""
                                                        style="color:#cc3a48;font-size:18px;font-weight:600;"
-                                                       data-menu-item-number="6">Logout</a></li>
+                                                       data-menu-item-number="6">Вихід</a></li>
                     </ul>
                 </div>
             </div>
@@ -144,7 +144,7 @@
             </div>
             <div class="t686__container t-container">
                 <div class="t686__row">
-                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/" target="">
+                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/jsp/user/get-user-t-shirts.jsp" target="">
                         <div class="t686__table" style="height:260px;">
                             <div class="t686__cell t-align_center t-valign_middle">
                                 <div class="t686__bg t686__animation_fast t686__bg_animated t-bgimg"
@@ -166,7 +166,7 @@
                             </div>
                         </div>
                     </a></div>
-                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/" target="">
+                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/jsp/user/get-user-jackets.jsp" target="">
                         <div class="t686__table" style="height:260px;">
                             <div class="t686__cell t-align_center t-valign_middle">
                                 <div class="t686__bg t686__animation_fast t686__bg_animated t-bgimg"
@@ -187,7 +187,7 @@
                             </div>
                         </div>
                     </a></div>
-                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/" target="">
+                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/jsp/user/get-user-hats.jsp" target="">
                         <div class="t686__table" style="height:260px;">
                             <div class="t686__cell t-align_center t-valign_middle">
                                 <div class="t686__bg t686__animation_fast t686__bg_animated t-bgimg"
@@ -210,7 +210,7 @@
                     </a></div>
                 </div>
                 <div class="t686__row">
-                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/" target="">
+                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/jsp/user/get-user-footwear.jsp" target="">
                         <div class="t686__table" style="height:260px;">
                             <div class="t686__cell t-align_center t-valign_middle">
                                 <div class="t686__bg t686__animation_fast t686__bg_animated t-bgimg"
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                     </a></div>
-                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/" target="">
+                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/jsp/user/get-user-backpacks.jsp" target="">
                         <div class="t686__table" style="height:260px;">
                             <div class="t686__cell t-align_center t-valign_middle">
                                 <div class="t686__bg t686__animation_fast t686__bg_animated t-bgimg"
@@ -252,7 +252,7 @@
                             </div>
                         </div>
                     </a></div>
-                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/" target="">
+                    <div class="t686__col t-col t-col_4 t-align_center "><a class="t686__link" href="/jsp/user/get-user-accessories.jsp" target="">
                         <div class="t686__table" style="height:260px;">
                             <div class="t686__cell t-align_center t-valign_middle">
                                 <div class="t686__bg t686__animation_fast t686__bg_animated t-bgimg"

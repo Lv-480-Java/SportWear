@@ -1,6 +1,7 @@
 package com.sportwear.servlet.registration;
 
 import com.sportwear.entity.User;
+import com.sportwear.service.registration.RegistrationService;
 import com.sportwear.service.user.UserService;
 import org.apache.log4j.Logger;
 
@@ -17,6 +18,7 @@ import java.io.IOException;
 public class RegistrationServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(RegistrationServlet.class.getName());
     private UserService userService = new UserService();
+    private RegistrationService registrationService = new RegistrationService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,20 +29,35 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
-        user.setFirst_name(req.getParameter("first_name"));
-        user.setLast_name(req.getParameter("last_name"));
-        user.setEmail(req.getParameter("email"));
-        user.setPassword(req.getParameter("password"));
+        String first_name = req.getParameter("first_name");
+        String last_name = req.getParameter("last_name");
+        String phone = req.getParameter("phone");
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirmPassword");
-        if (req.getParameter("password").equalsIgnoreCase(confirmPassword)) {
+
+        user.setFirst_name(first_name);
+        user.setLast_name(last_name);
+        user.setPhone(phone);
+        user.setEmail(email);
+        user.setPassword(password);
+
+        if (registrationService.checkRegistrationProperties(phone, email)
+                || registrationService.existsEmail(email)
+                || registrationService.length(password)
+                || registrationService.validateEmail(email)) {
+            logger.error("Wrong Parameters");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("jsp/invalidParam/invalidRegistration.jsp");
+            requestDispatcher.forward(req, resp);
+        } else if (req.getParameter("password").equalsIgnoreCase(confirmPassword)) {
             try {
                 userService.add(user);
                 HttpSession session = req.getSession();
                 session.setAttribute("user", userService.getOneUser(req.getParameter("email")));
+                logger.info("Registration ------> OK");
                 resp.sendRedirect("/user/user-homepage");
             } catch (IllegalArgumentException e){
-                req.setAttribute("error-msg", e.getMessage());
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("jsp/registrationForm.jsp");
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("jsp/invalidParam/invalidRegistration.jsp");
                 requestDispatcher.forward(req, resp);
             }
         } else {

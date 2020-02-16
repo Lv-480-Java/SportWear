@@ -69,6 +69,7 @@ public class User implements IUser{
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getPhone() {
         return phone;
     }

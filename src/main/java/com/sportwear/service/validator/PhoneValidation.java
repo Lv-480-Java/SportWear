@@ -1,15 +1,15 @@
 package com.sportwear.service.validator;
 
-import com.sportwear.dao.UserDao;
+import org.apache.log4j.Logger;
 
 public class PhoneValidation {
-    private UserDao userDao = new UserDao();
+    private static Logger logger = Logger.getLogger(PhoneValidation.class.getName());
 
-    public void validate(String phone) {
-
-    }
-
-    public void exists(Long id) {
-
+    public boolean lengthNum(String phone) {
+        if (phone.length() < 8 || phone.length() > 14) {
+            logger.error("Phone length must be at least 8 symbols and not more 14");
+            return true;
+        }
+        return false;
     }
 }
